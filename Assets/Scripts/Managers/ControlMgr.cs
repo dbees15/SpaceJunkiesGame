@@ -32,16 +32,16 @@ public class ControlMgr : MonoBehaviour
 
         if(SelectionMgr.inst.selectedEntity != null)
         {
-            if (Input.GetKeyUp(KeyCode.W)) 
-                SelectionMgr.inst.selectedEntity.desiredSpeed += deltaSpeed;
+            if (Input.GetKeyUp(KeyCode.W))
+                GameMgr.inst.player.desiredVelocity;
             if (Input.GetKeyUp(KeyCode.S))
-                SelectionMgr.inst.selectedEntity.desiredSpeed -= deltaSpeed;
+                
 
 
             if (Input.GetKeyUp(KeyCode.A))
-                SelectionMgr.inst.selectedEntity.desiredHeading -= deltaHeading;
+                
             if (Input.GetKeyUp(KeyCode.D))
-                SelectionMgr.inst.selectedEntity.desiredHeading += deltaHeading;
+                
 
             SelectionMgr.inst.selectedEntity.desiredHeading = Utils.Degress360(SelectionMgr.inst.selectedEntity.desiredHeading);
         }

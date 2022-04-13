@@ -6,7 +6,7 @@ public class GameMgr : MonoBehaviour
 {
     public static GameMgr inst;
 
-    public Entity381 player;
+    public Entity381Advanced player;
 
 
     private void Awake()

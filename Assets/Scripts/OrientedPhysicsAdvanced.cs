@@ -14,7 +14,7 @@ public class OrientedPhysicsAdvanced : MonoBehaviour
     }
 
     public Entity381Advanced entity;
-
+    public Vector3 deltaVelocity;
 
     // Update is called once per frame
     void Update()
@@ -29,7 +29,25 @@ public class OrientedPhysicsAdvanced : MonoBehaviour
             entity.speed = entity.speed - entity.acceleration * Time.deltaTime;
         }
 
-        if()
+        //handle x-axis velocity
+        if(entity.velocity.x < entity.desiredVelocity.x)
+        {
+            deltaVelocity += Vector3.right*entity.acceleration;
+        }
+        else
+        {
+            deltaVelocity -= Vector3.right * entity.acceleration;
+        }
+
+        //handle z-axis velocity
+        if (entity.velocity.z < entity.desiredVelocity.z)
+        {
+            deltaVelocity += Vector3.up * entity.acceleration;
+        }
+        else
+        {
+            deltaVelocity -= Vector3.up * entity.acceleration;
+        }
 
 
         if (Utils.ApproximatelyEqual(entity.heading, entity.desiredHeading))
