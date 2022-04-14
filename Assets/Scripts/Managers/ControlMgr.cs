@@ -102,16 +102,16 @@ public class ControlMgr : MonoBehaviour
                 GameMgr.inst.player.desiredVelocity = Vector3.zero;
             }
 
-            /*
-            if(Input.GetMouseButton(1))
+            
+            if(Input.GetMouseButtonDown(1))
             {
-                
+                GameMgr.inst.ToggleMagnet(true);
             }
-            else
+            else if(Input.GetMouseButtonUp(1))
             {
-
+                GameMgr.inst.ToggleMagnet(false);
             }
-            */
+            
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
             {

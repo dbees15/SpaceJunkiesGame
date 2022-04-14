@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Commands\Teleport.cs" />
     <Compile Include="Assets\Scripts\Entity381.cs" />
     <Compile Include="Assets\Scripts\Entity381Advanced.cs" />
+    <Compile Include="Assets\Scripts\Magnet.cs" />
     <Compile Include="Assets\Scripts\Managers\AIMgr.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraMgr.cs" />
     <Compile Include="Assets\Scripts\Managers\ControlMgr.cs" />

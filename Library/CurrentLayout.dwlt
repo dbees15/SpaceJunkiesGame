@@ -42,8 +42,8 @@ MonoBehaviour:
     y: 621
     width: 277
     height: 311
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 198}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 355
+  controlID: 36
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 136
+  controlID: 35
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,13 +188,13 @@ MonoBehaviour:
     height: 932
   m_MinSize: {x: 202, y: 224}
   m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 17}
   - {fileID: 14}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 498}
   m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
-  controlID: 32
+  controlID: 13
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -423,20 +423,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\Unity Projects\SpaceJunkiesGame\SpaceJunkiesGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a6090000
-    m_LastClickedID: 2470
-    m_ExpandedIDs: 00000000a60900009e0b000000ca9a3b
+    m_SelectedIDs: 9e0b0000
+    m_LastClickedID: 2974
+    m_ExpandedIDs: 00000000a20900009e0b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -464,7 +464,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a60900009e0b0000
+    m_ExpandedIDs: 00000000a20900009e0b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -567,7 +567,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -630,9 +630,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 537.4994, y: 657.309, z: -53.74048}
+    m_Target: {x: 2.046165, y: -2.428115, z: 1.8045299}
     speed: 2
-    m_Value: {x: 537.4994, y: 657.309, z: -53.74048}
+    m_Value: {x: 2.046165, y: -2.428115, z: 1.8045299}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -660,13 +660,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.23641817, y: -0.034394052, z: 0.008372773, w: -0.9710064}
+    m_Target: {x: -0.49106148, y: 0.008357853, z: -0.004712893, w: -0.87107205}
     speed: 2
-    m_Value: {x: -0.23641817, y: -0.034394052, z: 0.008372773, w: -0.9710064}
+    m_Value: {x: -0.49106148, y: 0.008357853, z: -0.004712893, w: -0.87107205}
   m_Size:
-    m_Target: 588.261
+    m_Target: 9.817366
     speed: 2
-    m_Value: 588.261
+    m_Value: 9.817366
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -707,9 +707,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0c34ffff
-      m_LastClickedID: -52212
-      m_ExpandedIDs: 0c34ffffdca6ffff2eb1ffffccfbffff3e0c00004a0c0000520c0000600c0000680c0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: defbffff600c0000960c0000a80c0000c20c0000d80c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
