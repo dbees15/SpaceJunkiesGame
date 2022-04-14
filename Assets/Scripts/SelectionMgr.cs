@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class SelectionMgr : MonoBehaviour
 {
+    
     public static SelectionMgr inst;
 
     public int selectedEntityIndex = 0;
@@ -23,7 +24,7 @@ public class SelectionMgr : MonoBehaviour
     {
         inst = this;
     }
-
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -133,5 +134,6 @@ public class SelectionMgr : MonoBehaviour
         selectedEntity.isSelected = true;
         ety.selectionCylinder.SetActive(true);
     }
+    */
 }
 

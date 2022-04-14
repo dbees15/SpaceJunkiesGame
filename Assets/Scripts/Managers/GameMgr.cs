@@ -7,7 +7,9 @@ public class GameMgr : MonoBehaviour
     public static GameMgr inst;
 
     public Entity381Advanced player;
+    public GameObject Magnet;
 
+    //Maybe vectors of game objects, such as enemies and scrap
 
     private void Awake()
     {

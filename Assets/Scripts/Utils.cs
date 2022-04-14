@@ -9,9 +9,9 @@ public static class Utils
 {
 
     public static float EPSILON = 0.01f;
-    public static bool ApproximatelyEqual(float a, float b)
+    public static bool ApproximatelyEqual(float a, float b, float epsilon = 0.01f)
     {
-        return (Mathf.Abs(a - b) < EPSILON);
+        return (Mathf.Abs(a - b) < epsilon);
     }
 
     public static float Clamp(float val, float min, float max)
