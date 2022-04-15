@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Commands\Intercept.cs" />
     <Compile Include="Assets\Scripts\Commands\Move.cs" />
     <Compile Include="Assets\Scripts\Commands\Teleport.cs" />
+    <Compile Include="Assets\Scripts\Debris.cs" />
     <Compile Include="Assets\Scripts\Entity381.cs" />
     <Compile Include="Assets\Scripts\Entity381Advanced.cs" />
     <Compile Include="Assets\Scripts\Magnet.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\Managers\GameMgr.cs" />
     <Compile Include="Assets\Scripts\OrientedPhysics.cs" />
     <Compile Include="Assets\Scripts\OrientedPhysicsAdvanced.cs" />
+    <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\SelectionMgr.cs" />
     <Compile Include="Assets\Scripts\UIMgr.cs" />
     <Compile Include="Assets\Scripts\UnitAI.cs" />

@@ -28,6 +28,7 @@ public class ControlMgr : MonoBehaviour
     RaycastHit hit;
 
     float lookangle;
+    float random;
     Vector3 diff;
 
     private void Awake()
@@ -59,7 +60,8 @@ public class ControlMgr : MonoBehaviour
 
         if(GameMgr.inst.player)
         {
-            if (Input.GetKey(KeyCode.W))
+            //movement
+            if (Input.GetKey(KeyCode.W))    
             {
                 if (Input.GetKey(KeyCode.A))
                 {
@@ -102,7 +104,7 @@ public class ControlMgr : MonoBehaviour
                 GameMgr.inst.player.desiredVelocity = Vector3.zero;
             }
 
-            
+            //Right Mouse turns on magnet
             if(Input.GetMouseButtonDown(1))
             {
                 GameMgr.inst.ToggleMagnet(true);
@@ -111,8 +113,23 @@ public class ControlMgr : MonoBehaviour
             {
                 GameMgr.inst.ToggleMagnet(false);
             }
-            
 
+
+            //Left Mouse spawns projectile
+            if (Input.GetMouseButtonDown(0))
+            {
+                random = Random.Range(-1.5f,1.5f);
+                GameObject projectile = Object.Instantiate(GameMgr.inst.playerProjectile.gameObject, GameMgr.inst.player.position,GameMgr.inst.transform.transform.rotation);
+                projectile.GetComponent<Entity381>().speed = GameMgr.inst.projectileSpeed;
+                projectile.GetComponent<Entity381>().desiredSpeed = GameMgr.inst.projectileSpeed;
+                projectile.GetComponent<Entity381>().heading = GameMgr.inst.player.heading + random;
+                projectile.GetComponent<Entity381>().desiredHeading = GameMgr.inst.player.heading + random;
+                Object.Destroy(projectile, 3);
+            }
+
+
+
+            //Get Mouse position on screen, set player heading to look at it
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
             {
                 intersectionPoint = hit.point;
@@ -122,7 +139,6 @@ public class ControlMgr : MonoBehaviour
                 GameMgr.inst.player.desiredHeading = lookangle;
                 Debug.DrawLine(intersectionPoint, Camera.main.transform.position, Color.red, 0.01f);
             }
-            //SelectionMgr.inst.selectedEntity.desiredHeading = Utils.Degress360(SelectionMgr.inst.selectedEntity.desiredHeading);
 
         }
 

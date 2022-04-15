@@ -16,8 +16,13 @@ public class Magnet : MonoBehaviour
     //    
     //}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //is called when there is a collision with another gameobject with a collider (such as debris)
     {
+
         print("collision with " + other.name);
+        if (other.name == "DebrisMesh")
+        {
+            other.GetComponentInParent<Debris>().enabled = true;
+        }
     }
 }

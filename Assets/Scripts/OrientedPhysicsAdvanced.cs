@@ -21,16 +21,6 @@ public class OrientedPhysicsAdvanced : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Utils.ApproximatelyEqual(entity.speed, entity.desiredSpeed)) { }
-        else if (entity.speed < entity.desiredSpeed)
-        {
-            entity.speed = entity.speed + entity.acceleration * Time.deltaTime;
-        }
-        else if (entity.speed > entity.desiredSpeed)
-        {
-            entity.speed = entity.speed - entity.acceleration * Time.deltaTime;
-        */
 
         //handle x-axis velocity
         if(Utils.ApproximatelyEqual(entity.velocity.x,entity.desiredVelocity.x))
@@ -60,10 +50,8 @@ public class OrientedPhysicsAdvanced : MonoBehaviour
             deltaVelocity -= Vector3.forward * entity.acceleration;
         }
 
-        //if (deltaVelocity.magnitude > 1)
-        //    deltaVelocity = deltaVelocity.normalized;
-
         
+        //handle heading
         if (Utils.ApproximatelyEqual(entity.heading, entity.desiredHeading,0.2f))
         {
             entity.heading = entity.desiredHeading;
@@ -87,12 +75,12 @@ public class OrientedPhysicsAdvanced : MonoBehaviour
 
         
 
+        //final assignments
         entity.velocity = deltaVelocity;
 
         entity.position = entity.position + entity.velocity * Time.deltaTime;
        
         playerAnchor.transform.position = entity.position;
-        //transform.localPosition = entity.position;
         eulerRotation.y = entity.heading;
         transform.localEulerAngles = eulerRotation;
     }

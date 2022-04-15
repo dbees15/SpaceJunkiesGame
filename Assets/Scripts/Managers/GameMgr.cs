@@ -7,11 +7,16 @@ public class GameMgr : MonoBehaviour
     public static GameMgr inst;
 
     public Entity381Advanced player;
-    public GameObject Magnet;
+    public GameObject magnet;
+    public GameObject playerProjectile;
+
+    public int Debris = 0;
+    public int Score = 0;
+
+    public float projectileSpeed = 20;
 
     public bool magnetOn;   //main bool to control magnet behavior
 
-    //Maybe vectors of game objects, such as enemies and scrap
 
     private void Awake()
     {
@@ -33,7 +38,7 @@ public class GameMgr : MonoBehaviour
     public void ToggleMagnet(bool state)
     {
         magnetOn = state;
-        Magnet.GetComponent<MeshRenderer>().enabled = state;
-        Magnet.GetComponent<SphereCollider>().enabled = state;
+        magnet.GetComponent<MeshRenderer>().enabled = state;
+        magnet.GetComponent<SphereCollider>().enabled = state;
     }
 }
