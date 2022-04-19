@@ -57,7 +57,7 @@ public class ControlMgr : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
             Application.Quit();
 
-        if(GameMgr.inst.player)
+        if(GameMgr.inst.playerIsAlive == true)
         {
             //movement
             if (Input.GetKey(KeyCode.W))    
@@ -117,13 +117,17 @@ public class ControlMgr : MonoBehaviour
             //Left Mouse spawns projectile
             if (Input.GetMouseButtonDown(0))
             {
-                random = Random.Range(-1.5f,1.5f);
-                GameObject projectile = Object.Instantiate(GameMgr.inst.playerProjectile.gameObject, GameMgr.inst.player.position,GameMgr.inst.transform.transform.rotation);
-                projectile.GetComponent<Entity381>().speed = GameMgr.inst.projectileSpeed;
-                projectile.GetComponent<Entity381>().desiredSpeed = GameMgr.inst.projectileSpeed;
-                projectile.GetComponent<Entity381>().heading = GameMgr.inst.player.heading + random;
-                projectile.GetComponent<Entity381>().desiredHeading = GameMgr.inst.player.heading + random;
-                Object.Destroy(projectile, 3);
+                if(GameMgr.inst.Debris >=1)
+                {
+                    GameMgr.inst.Debris -= 1;
+                    random = Random.Range(-1.5f,1.5f);
+                    GameObject projectile = Object.Instantiate(GameMgr.inst.playerProjectile.gameObject, GameMgr.inst.player.position,GameMgr.inst.transform.transform.rotation);
+                    projectile.GetComponent<Entity381>().speed = GameMgr.inst.projectileSpeed;
+                    projectile.GetComponent<Entity381>().desiredSpeed = GameMgr.inst.projectileSpeed;
+                    projectile.GetComponent<Entity381>().heading = GameMgr.inst.player.heading + random;
+                    projectile.GetComponent<Entity381>().desiredHeading = GameMgr.inst.player.heading + random;
+                    Object.Destroy(projectile, 3);
+                }
             }
 
 

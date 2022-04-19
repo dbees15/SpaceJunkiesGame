@@ -11,11 +11,9 @@ public class UIMgr : MonoBehaviour
     // Start is called before the first frame update
     public static UIMgr inst;
 
-    public Text nameT;
-    public Text speedT;
-    public Text desiredspeedT;
-    public Text headingT;
-    public Text desiredheadingT;
+    public Text HealthT;
+    public Text VelocityT;
+    public Text DebrisT;
 
     private void Awake()
     {
@@ -30,21 +28,17 @@ public class UIMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SelectionMgr.inst.selectedEntity != null)
+        if(GameMgr.inst != null)
         {
-            nameT.text = SelectionMgr.inst.selectedEntity.name;
-            speedT.text = SelectionMgr.inst.selectedEntity.speed.ToString();
-            desiredspeedT.text = SelectionMgr.inst.selectedEntity.desiredSpeed.ToString();
-            headingT.text = SelectionMgr.inst.selectedEntity.heading.ToString();
-            desiredheadingT.text = SelectionMgr.inst.selectedEntity.desiredHeading.ToString();
+            HealthT.text = GameMgr.inst.PlayerHealth.ToString();
+            VelocityT.text = (Mathf.Round(GameMgr.inst.player.velocity.magnitude*10)*0.1).ToString() + "\n" + "m/s";
+            DebrisT.text = GameMgr.inst.Debris.ToString();
         }
         else
         {
-            nameT.text = "N/A";
-            speedT.text = "N/A";
-            desiredspeedT.text = "N/A";
-            headingT.text = "N/A";
-            desiredheadingT.text = "N/A";
+            HealthT.text = "N/A";
+            VelocityT.text = "N/A";
+            DebrisT.text = "N/A";
         }
     }
 }

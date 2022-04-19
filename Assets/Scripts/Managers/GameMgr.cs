@@ -11,7 +11,10 @@ public class GameMgr : MonoBehaviour
     public GameObject playerProjectile;
 
     public int Debris = 0;
+    public int PlayerHealth = 3;
     public int Score = 0;
+
+    public bool playerIsAlive = true;
 
     public float projectileSpeed = 20;
 
@@ -32,7 +35,8 @@ public class GameMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (PlayerHealth <= 0)  //check if player is alive
+            onPlayerDeath();
     }
 
     public void ToggleMagnet(bool state)
@@ -40,5 +44,13 @@ public class GameMgr : MonoBehaviour
         magnetOn = state;
         magnet.GetComponent<MeshRenderer>().enabled = state;
         magnet.GetComponent<SphereCollider>().enabled = state;
+    }
+
+    public void onPlayerDeath()
+    {
+        playerIsAlive = false;  //set alive to false
+        //maybe put explosion animation here?
+        player.transform.GetChild(0).gameObject.SetActive(false);   //hide player mesh
+        //maybe activate a game over screen?
     }
 }

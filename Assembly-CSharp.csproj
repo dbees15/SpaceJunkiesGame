@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Enemy.cs" />
     <Compile Include="Assets\Planet Earth Free\SpinFree.cs" />
     <Compile Include="Assets\Scripts\Commands\Command.cs" />
     <Compile Include="Assets\Scripts\Commands\Follow.cs" />
@@ -68,6 +67,8 @@
     <Compile Include="Assets\Scripts\Commands\Move.cs" />
     <Compile Include="Assets\Scripts\Commands\Teleport.cs" />
     <Compile Include="Assets\Scripts\Debris.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Entity381.cs" />
     <Compile Include="Assets\Scripts\Entity381Advanced.cs" />
     <Compile Include="Assets\Scripts\Magnet.cs" />
@@ -80,11 +81,11 @@
     <Compile Include="Assets\Scripts\OrientedPhysicsAdvanced.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\SelectionMgr.cs" />
+    <Compile Include="Assets\Scripts\SpawnDebris.cs" />
+    <Compile Include="Assets\Scripts\SpawnEnemies.cs" />
     <Compile Include="Assets\Scripts\UIMgr.cs" />
     <Compile Include="Assets\Scripts\UnitAI.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
-    <Compile Include="Assets\SpawnDebris.cs" />
-    <Compile Include="Assets\SpawnEnemies.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Unity Projects/SpaceJunkiesGame/SpaceJunkiesGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
