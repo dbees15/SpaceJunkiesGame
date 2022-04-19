@@ -13,6 +13,7 @@ public class SpawnDebris : MonoBehaviour
     public float respawnTime = 1.0f;
     private Vector3 screenBounds;
     public float gameplayRange = 50.0f;
+    public float yLevel = -2;   //what y level to spawn on
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class SpawnDebris : MonoBehaviour
         for (int i = 0; i < debris.Length; i++)
         {
             debris[i] = Instantiate(debrisPrefab).GetComponent<Debris>();
-            debris[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, Random.Range(-screenBounds.z, screenBounds.z));  
+            debris[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), yLevel, Random.Range(-screenBounds.z, screenBounds.z));  
         }
     }
 
@@ -42,12 +43,12 @@ public class SpawnDebris : MonoBehaviour
         while (IsWithinView(position))
         {
             // recalc until out of view
-            position = new Vector3(Random.Range(-gameplayRange, gameplayRange), 0, Random.Range(-gameplayRange, gameplayRange)); // place randomly in space
+            position = new Vector3(Random.Range(-gameplayRange, gameplayRange), yLevel, Random.Range(-gameplayRange, gameplayRange)); // place randomly in space
         }
         for (int i = 0; i < debris.Length; i++)
         {
             debris[i] = Instantiate(debrisPrefab).GetComponent<Debris>();
-            debris[i].transform.position = new Vector3(Random.Range(position.x - 5, position.x + 5), 0, Random.Range(position.z - 5, position.z + 5)); // clump 5 at a time
+            debris[i].transform.position = new Vector3(Random.Range(position.x - 5, position.x + 5), yLevel, Random.Range(position.z - 5, position.z + 5)); // clump 5 at a time
         }
     }
     

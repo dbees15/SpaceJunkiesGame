@@ -57,7 +57,7 @@ public class Intercept : Command
             entity.desiredSpeed = 0;
             entity.speed = 0;
             targetAdv.desiredVelocity = Vector3.zero;
-            targetAdv.GetComponent<UnitAI>().ClearCommands();
+            //targetAdv.GetComponent<UnitAI>().ClearCommands();
         }
     }
 }

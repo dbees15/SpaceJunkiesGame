@@ -19,7 +19,13 @@ public class Projectile : MonoBehaviour
         {
             if(other.name == "EnemyMesh")
             {
-                GameMgr.inst.Score += 1;
+                other.GetComponentInParent<Enemy>().health -= 1;
+                if(other.GetComponentInParent<Enemy>().health <= 0)
+                {
+                    GameMgr.inst.Score += 10;
+                    Destroy(other.transform.parent.gameObject, 0);
+
+                }
                 Destroy(this.gameObject.GetComponentInParent<Transform>().gameObject,0);
             }
         }

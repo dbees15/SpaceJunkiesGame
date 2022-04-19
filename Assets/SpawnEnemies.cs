@@ -29,6 +29,7 @@ public class SpawnEnemies : MonoBehaviour
         for (int i = 0; i < enemy.Length; i++)
         {
             enemy[i] = Instantiate(enemyPrefab) as GameObject;
+            enemy[i].SetActive(true);
             enemy[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, Random.Range(-screenBounds.z, screenBounds.z));
         }
     }
