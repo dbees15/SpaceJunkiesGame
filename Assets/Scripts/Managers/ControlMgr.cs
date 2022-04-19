@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class ControlMgr : MonoBehaviour
 {
-
     public static ControlMgr inst;
     public float deltaSpeed = 1;
     public float deltaHeading = 4;

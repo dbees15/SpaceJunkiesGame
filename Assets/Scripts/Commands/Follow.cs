@@ -19,6 +19,7 @@ public class Follow : Command
 
     public override void Init()
     {
+
     }
 
     Vector3 diff = Vector3.zero;
@@ -41,10 +42,10 @@ public class Follow : Command
         else
         {
             entity.desiredHeading = targetEntity.heading;
-            if(targetEntity.speed <= entity.maxSpeed)
+            if (targetEntity.speed <= entity.maxSpeed)
             {
                 entity.desiredSpeed = targetEntity.speed;
-            }                
+            }
             else
             {
                 entity.desiredSpeed = entity.maxSpeed;

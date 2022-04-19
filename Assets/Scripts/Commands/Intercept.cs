@@ -9,6 +9,7 @@ public class Intercept : Command
 {
     public float doneDistance = 10;
     public Entity381 target;
+    public Entity381Advanced targetAdv;
 
     public Vector3 predictedPosition = Vector3.zero;
     public Vector3 diff = Vector3.zero;
@@ -20,15 +21,20 @@ public class Intercept : Command
         target = targetEntity;
     }
 
+    public Intercept(Entity381 ent, Entity381Advanced targetEntityAdv) : base(ent)
+    {
+        targetAdv = targetEntityAdv;
+    }
+
     public override void Init()
     {
-        //Debug.Log("Teleporting Entity to " + teleportPosition);
+
     }
 
     public override void Tick()
     {
-        t = (target.position - entity.position).magnitude / (target.velocity - entity.velocity).magnitude;
-        predictedPosition = target.position + target.velocity * t;
+        t = (targetAdv.position - entity.position).magnitude / (targetAdv.velocity - entity.velocity).magnitude;
+        predictedPosition = targetAdv.position + targetAdv.velocity * t;
 
         diff = predictedPosition - entity.position;
         angle = Mathf.Atan2(diff.x, diff.z) * Mathf.Rad2Deg;
@@ -36,26 +42,22 @@ public class Intercept : Command
         entity.desiredHeading = angle;
         entity.desiredSpeed = entity.maxSpeed;
         Debug.DrawLine(entity.position, predictedPosition, Color.red, 0.05f);
-
     }
 
     public override bool IsDone()
     {
-        return (Vector3.Distance(target.position, entity.position) < doneDistance);
+        return (Vector3.Distance(targetAdv.position, entity.position) < doneDistance);
     }
 
     public override void Stop()
     {
         entity.desiredSpeed = 0;
-        if(Vector3.Distance(target.position, entity.position) < doneDistance)
+        if(Vector3.Distance(targetAdv.position, entity.position) < doneDistance)
         {
             entity.desiredSpeed = 0;
             entity.speed = 0;
-            target.desiredSpeed = 0;
-            target.speed = 0;
-            target.GetComponent<UnitAI>().ClearCommands();
-
-
+            targetAdv.desiredVelocity = Vector3.zero;
+            targetAdv.GetComponent<UnitAI>().ClearCommands();
         }
     }
 }

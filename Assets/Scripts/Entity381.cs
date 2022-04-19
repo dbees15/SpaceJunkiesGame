@@ -7,9 +7,10 @@ using UnityEngine;
 
 public class Entity381 : MonoBehaviour
 {
-
     public Vector3 position = Vector3.zero;
     public Vector3 velocity = Vector3.zero;
+
+    public Vector3 desiredVelocity = Vector3.zero;
 
     public float speed;
     public float desiredSpeed;
@@ -20,7 +21,6 @@ public class Entity381 : MonoBehaviour
     public float acceleration;
     public float maxSpeed;
     public float minSpeed;
-
 
     public GameObject cameraRig;
 

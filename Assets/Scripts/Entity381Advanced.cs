@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Entity381Advanced : MonoBehaviour
 {
-
     public Vector3 position = Vector3.zero;
     public Vector3 velocity = Vector3.zero;
 

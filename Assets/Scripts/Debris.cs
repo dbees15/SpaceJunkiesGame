@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Debris : MonoBehaviour
 {
-    // Start is called before the first frame update
-    Entity381 entity;
+    public Entity381 entity;
     Vector3 diff;
     float angle;
 
     public float pickupVelocity = 10;
-    public float pickupDistance = 0.5f;
-
+    public float pickupDistance = 0.2f;
 
     void Start()
     {
@@ -20,17 +18,24 @@ public class Debris : MonoBehaviour
         entity.maxSpeed = pickupVelocity;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //make the debris move toward player
-        entity.desiredSpeed = pickupVelocity;   
+        //make the debris move toward player // if within distance
+
+        //Vector3 distance = new Vector3(entity.position.x, 0, entity.position.z);
+        //if (distance.magnitude <= 10){
+        entity.desiredSpeed = pickupVelocity;
         diff = GameMgr.inst.player.position - entity.position;
         angle = Mathf.Atan2(diff.x, diff.z) * Mathf.Rad2Deg;
         angle = Utils.Degress360(angle);
         entity.desiredHeading = angle;
         entity.heading = angle;
-        
+        //else
+        //{
+        //    entity.desiredSpeed = 0;
+        //}
+            
+
         //destroy the object and give player +1 debris when close enough
         if(Vector3.Distance(GameMgr.inst.player.position, new Vector3(entity.position.x, 0, entity.position.z)) < pickupDistance)
         {

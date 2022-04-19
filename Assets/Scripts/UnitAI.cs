@@ -36,7 +36,7 @@ public class UnitAI : MonoBehaviour
 
     public void AddCommand(Command cmd)    //add command to list
     {
-        print("Added Command!");
+        //print("Added Command!");
         commandList.Add(cmd);
     }
 
