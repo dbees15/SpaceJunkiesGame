@@ -10,15 +10,15 @@ public class SpawnDebris : MonoBehaviour
     public GameObject debrisPrefab;
     public Debris[] debris;
 
-    public float respawnTime = 1.0f;
+    public float respawnTime = 10;
     private Vector3 screenBounds;
-    public float gameplayRange = 50.0f;
+    public float gameplayRange = 30;
     public float yLevel = -2;   //what y level to spawn on
 
     // Start is called before the first frame update
     void Start()
     {
-        var horzBound = 3 * Camera.main.orthographicSize;
+        var horzBound = 4 * Camera.main.orthographicSize;
         var vertBound = horzBound * Screen.width / Screen.height;
         screenBounds = new Vector3(vertBound, 0, horzBound); 
         Init();

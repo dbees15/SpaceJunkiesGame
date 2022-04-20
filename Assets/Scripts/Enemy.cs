@@ -6,11 +6,11 @@ public class Enemy : MonoBehaviour
 {
     //entity properties
     public Entity381 entity;
-    public float maxspeed = 6.5f;
+    public float maxSpeed = 6.5f;
     public int health = 3;
 
-    public float maxfollowdistance = 20; //max distance enemy will follow
-    public float maxinterceptdistance = 10; //max distance enemy will intercept
+    public float maxFollowDistance = 20; //max distance enemy will follow
+    public float maxInterceptDistance = 10; //max distance enemy will intercept
 
     //intercept variables
     public float doneDistance = 10;
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         entity = this.GetComponent<Entity381>();
         entity.turnRate = 60;
-        entity.maxSpeed = maxspeed;
+        entity.maxSpeed = maxSpeed;
         targetAdv = GameMgr.inst.player;
         //HandleIntercept(GameMgr.inst.player);
     }
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     {
         dist = Vector3.Distance(GameMgr.inst.player.position, entity.position);
 
-        if(dist < maxinterceptdistance)    //follow distance
+        if(dist < maxInterceptDistance)    //follow distance
         {
             t = (targetAdv.position - entity.position).magnitude / (targetAdv.velocity - entity.velocity).magnitude;
             predictedPosition = targetAdv.position + targetAdv.velocity * t;
@@ -58,12 +58,12 @@ public class Enemy : MonoBehaviour
             angle = Mathf.Atan2(diff.x, diff.z) * Mathf.Rad2Deg;
             angle = Utils.Degress360(angle);
             entity.desiredHeading = angle;
-            entity.desiredSpeed = maxspeed;
+            entity.desiredSpeed = maxSpeed;
             Debug.DrawLine(entity.position, predictedPosition, Color.red, 0.05f);
         }
-        else if(dist < maxfollowdistance)  //intercept distance
+        else if(dist < maxFollowDistance)  //intercept distance
         {
-            entity.desiredSpeed = maxspeed;
+            entity.desiredSpeed = maxSpeed;
             diff = GameMgr.inst.player.position - entity.position;
             angle = Mathf.Atan2(diff.x, diff.z) * Mathf.Rad2Deg;
             angle = Utils.Degress360(angle);

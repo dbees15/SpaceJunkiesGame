@@ -9,9 +9,10 @@ public class SpawnEnemies : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public GameObject[] enemy;
-    public float respawnTime = 20.0f;
+    public float respawnTime = 20;
+    public int numEnemiesInit = 2;
     private Vector3 screenBounds;
-    public float gameplayRange = 50.0f;
+    public float gameplayRange = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class SpawnEnemies : MonoBehaviour
 
     private void Init()
     {
-        enemy = new GameObject[2];
+        enemy = new GameObject[numEnemiesInit];
         for (int i = 0; i < enemy.Length; i++)
         {
             enemy[i] = Instantiate(enemyPrefab) as GameObject;

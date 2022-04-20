@@ -31,7 +31,7 @@ public class UIMgr : MonoBehaviour
         if(GameMgr.inst != null)
         {
             HealthT.text = GameMgr.inst.PlayerHealth.ToString();
-            VelocityT.text = (Mathf.Round(GameMgr.inst.player.velocity.magnitude*10)*0.1).ToString() + "\n" + "m/s";
+            VelocityT.text = (Mathf.Round(GameMgr.inst.player.velocity.magnitude*10)*0.1).ToString() + " m/s";
             DebrisT.text = GameMgr.inst.Debris.ToString();
         }
         else
