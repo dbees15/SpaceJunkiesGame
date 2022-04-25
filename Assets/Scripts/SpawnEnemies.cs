@@ -14,6 +14,7 @@ public class SpawnEnemies : MonoBehaviour
     private Vector3 screenBounds;
     public float gameplayRange = 50;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,8 @@ public class SpawnEnemies : MonoBehaviour
         {
             enemy[i] = Instantiate(enemyPrefab) as GameObject;
             enemy[i].SetActive(true);
-            enemy[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, Random.Range(-screenBounds.z, screenBounds.z));
+            //enemy[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, Random.Range(-screenBounds.z, screenBounds.z));
+            enemy[i].transform.position = new Vector3(Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize), 0, Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize));
         }
     }
 
@@ -39,11 +41,12 @@ public class SpawnEnemies : MonoBehaviour
     {
         Vector3 position = Vector3.zero;
 
-        while (IsWithinView(position))
+        do
         {
             // recalc until out of view
-            position = new Vector3(Random.Range(-gameplayRange, gameplayRange), 0, Random.Range(-gameplayRange, gameplayRange)); // place randomly in space
+            position = new Vector3(Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize), 0, Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize)); ; // place randomly in space
         }
+        while (IsWithinView(position));
 
         enemy[0] = Instantiate(enemyPrefab) as GameObject; // spawn one enemy at a time
         enemy[0].transform.position = new Vector3(position.x, 0, position.z);
@@ -55,7 +58,9 @@ public class SpawnEnemies : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(respawnTime);
-            Spawn();
+
+            if(GameMgr.inst.currentEnemies < GameMgr.inst.maxEnemies)
+                Spawn();
         }
     }
 

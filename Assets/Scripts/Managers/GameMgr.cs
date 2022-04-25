@@ -10,13 +10,17 @@ public class GameMgr : MonoBehaviour
     public GameObject magnet;
     public GameObject playerProjectile;
 
-    public int Debris = 0;
-    public int PlayerHealth = 3;
-    public int Score = 0;
+    public int Debris = 0;  //current debris
+    public int PlayerHealth = 3;    //curent health
+    public int Score = 0;   //current score
+
+    public int MapSize = 200;   //size of the play area square
+
+    public int maxEnemies = 15;
+    public int currentEnemies = 0;
 
     public bool playerIsAlive = true;
-
-    public float projectileSpeed = 20;
+    public float projectileSpeed = 20;  //speed projectile travel at
 
     public bool magnetOn;   //main bool to control magnet behavior
 
@@ -24,6 +28,7 @@ public class GameMgr : MonoBehaviour
     private void Awake()
     {
         inst = this;
+        MapSize /= 2; 
     }
 
     // Start is called before the first frame update
@@ -52,5 +57,21 @@ public class GameMgr : MonoBehaviour
         //maybe put explosion animation here?
         player.transform.GetChild(0).gameObject.SetActive(false);   //hide player mesh
         //maybe activate a game over screen?
+    }
+
+    public bool PlayerInBounds()    //check if player is in the map
+    {
+        return (player.position.x < MapSize) &&
+               (player.position.x > -1*MapSize) &&
+               (player.position.z < MapSize) &&
+               (player.position.z > -1*MapSize);
+    }
+
+    public bool PointInBounds(Vector3 p) //check if a point is in map bounds
+    {
+        return (p.x < MapSize) &&
+       (p.x > -1 * MapSize) &&
+       (p.z < MapSize) &&
+       (p.z > -1 * MapSize);
     }
 }

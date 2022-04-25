@@ -60,48 +60,56 @@ public class ControlMgr : MonoBehaviour
         if(GameMgr.inst.playerIsAlive == true)
         {
             //movement
-            if (Input.GetKey(KeyCode.W))    
+            if(GameMgr.inst.PlayerInBounds())
             {
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.W))    
                 {
-                    GameMgr.inst.player.desiredVelocity = upleft;
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        GameMgr.inst.player.desiredVelocity = upleft;
+                    }
+                    else if (Input.GetKey(KeyCode.D))
+                    {
+                        GameMgr.inst.player.desiredVelocity = upright;
+                    }
+                    else
+                    {
+                        GameMgr.inst.player.desiredVelocity = up;
+                    }
                 }
+                else if (Input.GetKey(KeyCode.S))
+                {
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        GameMgr.inst.player.desiredVelocity = downleft;
+                    }
+                    else if (Input.GetKey(KeyCode.D))
+                    {
+                        GameMgr.inst.player.desiredVelocity = downright;
+                    }
+                    else
+                    {
+                        GameMgr.inst.player.desiredVelocity = down;
+                    }
+                }
+                else if (Input.GetKey(KeyCode.A))
+                {
+                    GameMgr.inst.player.desiredVelocity = left;
+                }  
                 else if (Input.GetKey(KeyCode.D))
                 {
-                    GameMgr.inst.player.desiredVelocity = upright;
+                    GameMgr.inst.player.desiredVelocity = right;
                 }
                 else
                 {
-                    GameMgr.inst.player.desiredVelocity = up;
+                    GameMgr.inst.player.desiredVelocity = Vector3.zero;
                 }
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    GameMgr.inst.player.desiredVelocity = downleft;
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    GameMgr.inst.player.desiredVelocity = downright;
-                }
-                else
-                {
-                    GameMgr.inst.player.desiredVelocity = down;
-                }
-            }
-            else if (Input.GetKey(KeyCode.A))
-            {
-                GameMgr.inst.player.desiredVelocity = left;
-            }  
-            else if (Input.GetKey(KeyCode.D))
-            {
-                GameMgr.inst.player.desiredVelocity = right;
             }
             else
             {
-                GameMgr.inst.player.desiredVelocity = Vector3.zero;
+                GameMgr.inst.player.desiredVelocity = GameMgr.inst.player.position.normalized * GameMgr.inst.player.maxSpeed * -1;
             }
+
 
             //Right Mouse turns on magnet
             if(Input.GetMouseButtonDown(1))
@@ -143,6 +151,10 @@ public class ControlMgr : MonoBehaviour
                 Debug.DrawLine(intersectionPoint, Camera.main.transform.position, Color.red, 0.01f);
             }
 
+        }
+        else
+        {
+            GameMgr.inst.player.desiredVelocity = Vector3.zero;
         }
 
     }

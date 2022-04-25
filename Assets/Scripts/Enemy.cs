@@ -33,7 +33,8 @@ public class Enemy : MonoBehaviour
         entity.turnRate = 60;
         entity.maxSpeed = maxSpeed;
         targetAdv = GameMgr.inst.player;
-        //HandleIntercept(GameMgr.inst.player);
+
+        GameMgr.inst.currentEnemies += 1;
     }
 
     // Update is called once per frame
@@ -95,5 +96,10 @@ public class Enemy : MonoBehaviour
         //{
         //    uai.SetCommand(intercept);
         //}
+    }
+
+    private void OnDestroy()
+    {
+        GameMgr.inst.currentEnemies -= 1;
     }
 }

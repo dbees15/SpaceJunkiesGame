@@ -31,7 +31,15 @@ public class SpawnDebris : MonoBehaviour
         for (int i = 0; i < debris.Length; i++)
         {
             debris[i] = Instantiate(debrisPrefab).GetComponent<Debris>();
-            debris[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), yLevel, Random.Range(-screenBounds.z, screenBounds.z));  
+            //debris[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), yLevel, Random.Range(-screenBounds.z, screenBounds.z)); 
+
+            //spawn debris in map bounds
+            debris[i].transform.position = new Vector3(Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize), yLevel, Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize));
+        }
+
+        for(int i = 0; i < 15; i++) //spawn a few clouds of debris
+        {
+            Spawn();
         }
     }
 
@@ -40,11 +48,14 @@ public class SpawnDebris : MonoBehaviour
         debris = new Debris[5];
         Vector3 position = Vector3.zero;
 
-        while (IsWithinView(position))
+        do
         {
-            // recalc until out of view
             position = new Vector3(Random.Range(-gameplayRange, gameplayRange), yLevel, Random.Range(-gameplayRange, gameplayRange)); // place randomly in space
+            // recalc until out of view
         }
+        while (IsWithinView(position) && GameMgr.inst.PointInBounds(position));
+
+
         for (int i = 0; i < debris.Length; i++)
         {
             debris[i] = Instantiate(debrisPrefab).GetComponent<Debris>();
