@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class SoundMgr : MonoBehaviour
 {
-    AudioSource audioData;
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource bgMusic;
+    //public AudioSource debrisPickup;
+    
+    public void PlayBackground()
     {
-        audioData = GetComponent<AudioSource>();
-        audioData.Play();
+        bgMusic.Play();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
