@@ -100,6 +100,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
+        SoundMgr.inst.PlayEnemyDie();
         GameMgr.inst.currentEnemies -= 1;
     }
 }

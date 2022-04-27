@@ -9,9 +9,9 @@ public class EnemyCollision : MonoBehaviour
     {
         if(other.name == "PlayerMesh")
         {
+            SoundMgr.inst.PlayHit();
             GameMgr.inst.PlayerHealth -= 1;
             Destroy(this.transform.parent.gameObject, 0);
-            SoundMgr.inst.PlayEnemyDie();
         }
     }
  

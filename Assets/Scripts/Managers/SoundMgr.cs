@@ -17,6 +17,7 @@ public class SoundMgr : MonoBehaviour
     public AudioSource playerProjectile;
     public AudioSource enemyDie;
     public AudioSource magnetSound;
+    public AudioSource hitSound;
     
     //public void PlayBackground()
     //{
@@ -56,5 +57,8 @@ public class SoundMgr : MonoBehaviour
         enemyDie.Play();
     }
 
-
+    public void PlayHit()
+    {
+        hitSound.Play();
+    }
 }
