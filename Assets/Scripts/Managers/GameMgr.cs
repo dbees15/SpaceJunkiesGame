@@ -47,6 +47,12 @@ public class GameMgr : MonoBehaviour
     public void ToggleMagnet(bool state)
     {
         magnetOn = state;
+
+        if (magnetOn)
+            SoundMgr.inst.PlayMagnet();
+        else
+            SoundMgr.inst.StopMagnet();
+
         magnet.GetComponent<MeshRenderer>().enabled = state;
         magnet.GetComponent<SphereCollider>().enabled = state;
     }
@@ -57,6 +63,7 @@ public class GameMgr : MonoBehaviour
         //maybe put explosion animation here?
         player.transform.GetChild(0).gameObject.SetActive(false);   //hide player mesh
         //maybe activate a game over screen?
+        //SoundMgr.inst.PlayGameOver(); // plays multiple times
     }
 
     public bool PlayerInBounds()    //check if player is in the map

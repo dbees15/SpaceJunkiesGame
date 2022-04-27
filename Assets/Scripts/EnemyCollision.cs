@@ -11,11 +11,8 @@ public class EnemyCollision : MonoBehaviour
         {
             GameMgr.inst.PlayerHealth -= 1;
             Destroy(this.transform.parent.gameObject, 0);
+            SoundMgr.inst.PlayEnemyDie();
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 }

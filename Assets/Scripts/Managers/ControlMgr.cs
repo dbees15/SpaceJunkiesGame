@@ -127,6 +127,7 @@ public class ControlMgr : MonoBehaviour
             {
                 if(GameMgr.inst.Debris >=1)
                 {
+                    SoundMgr.inst.PlayProjectile();
                     GameMgr.inst.Debris -= 1;
                     random = Random.Range(-1.5f,1.5f);
                     GameObject projectile = Object.Instantiate(GameMgr.inst.playerProjectile.gameObject, GameMgr.inst.player.position,GameMgr.inst.transform.transform.rotation);

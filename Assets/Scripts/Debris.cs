@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Debris : MonoBehaviour
 {
-    AudioSource debrisPickup;
-
     public Entity381 entity;
     Vector3 diff;
     float angle;
@@ -15,7 +13,6 @@ public class Debris : MonoBehaviour
 
     void Start()
     {
-        debrisPickup = GetComponent<AudioSource>();
         entity = this.gameObject.GetComponent<Entity381>();
         entity.desiredSpeed = pickupVelocity;
         entity.maxSpeed = pickupVelocity;
@@ -37,8 +34,7 @@ public class Debris : MonoBehaviour
         {
             GameMgr.inst.Debris += 1;
             Destroy(this.gameObject.GetComponentInParent<Transform>().gameObject, 0);
+            SoundMgr.inst.PlayDebris();
         }
-
-    
     }
 }

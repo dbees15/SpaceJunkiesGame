@@ -10,7 +10,7 @@ public class SpawnEnemies : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject[] enemy;
     public float respawnTime = 20;
-    public int numEnemiesInit = 2;
+    public int numEnemiesInit = 10;
     private Vector3 screenBounds;
     public float gameplayRange = 50;
 
@@ -32,8 +32,8 @@ public class SpawnEnemies : MonoBehaviour
         {
             enemy[i] = Instantiate(enemyPrefab) as GameObject;
             enemy[i].SetActive(true);
-            //enemy[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, Random.Range(-screenBounds.z, screenBounds.z));
-            enemy[i].transform.position = new Vector3(Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize), 0, Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize));
+            enemy[i].transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, Random.Range(-screenBounds.z, screenBounds.z));
+            //enemy[i].transform.position = new Vector3(Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize), 0, Random.Range(-GameMgr.inst.MapSize, GameMgr.inst.MapSize));
         }
     }
 
