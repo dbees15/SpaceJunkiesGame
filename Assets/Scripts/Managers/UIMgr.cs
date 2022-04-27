@@ -15,6 +15,15 @@ public class UIMgr : MonoBehaviour
     public Text VelocityT;
     public Text DebrisT;
 
+    public Text ScoreT;
+    public Text FinalDebrisT;
+    public Text FinalEnemiesDestroyedT;
+
+    public GameObject GameOverUI;
+    public GameObject InfoUI;
+
+
+
     private void Awake()
     {
         inst = this;
@@ -40,5 +49,16 @@ public class UIMgr : MonoBehaviour
             VelocityT.text = "N/A";
             DebrisT.text = "N/A";
         }
+    }
+
+    public void OnGameOver()
+    {
+        ScoreT.text = GameMgr.inst.Score.ToString();
+        FinalDebrisT.text = GameMgr.inst.TotalDebrisCollected.ToString();
+        FinalEnemiesDestroyedT.text = GameMgr.inst.TotalEnemiesDestroyed.ToString();
+
+
+        GameOverUI.SetActive(true);
+        InfoUI.SetActive(false);
     }
 }

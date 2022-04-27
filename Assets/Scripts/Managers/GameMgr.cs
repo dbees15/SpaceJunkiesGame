@@ -14,6 +14,9 @@ public class GameMgr : MonoBehaviour
     public int PlayerHealth = 3;    //curent health
     public int Score = 0;   //current score
 
+    public int TotalEnemiesDestroyed = 0;
+    public int TotalDebrisCollected = 0;
+
     public int MapSize = 200;   //size of the play area square
 
     public int maxEnemies = 15;
@@ -62,6 +65,7 @@ public class GameMgr : MonoBehaviour
         playerIsAlive = false;  //set alive to false
         //maybe put explosion animation here?
         player.transform.GetChild(0).gameObject.SetActive(false);   //hide player mesh
+        UIMgr.inst.OnGameOver();
         //maybe activate a game over screen?
         //SoundMgr.inst.PlayGameOver(); // plays multiple times
     }

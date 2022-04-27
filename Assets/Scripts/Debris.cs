@@ -33,6 +33,8 @@ public class Debris : MonoBehaviour
         if (Vector3.Distance(GameMgr.inst.player.position, new Vector3(entity.position.x, 0, entity.position.z)) < pickupDistance)
         {
             GameMgr.inst.Debris += 1;
+            GameMgr.inst.TotalDebrisCollected += 1;
+            GameMgr.inst.Score += 1;
             Destroy(this.gameObject.GetComponentInParent<Transform>().gameObject, 0);
             SoundMgr.inst.PlayDebris();
         }

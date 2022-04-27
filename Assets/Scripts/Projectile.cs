@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
                 if(other.GetComponentInParent<Enemy>().health <= 0)
                 {
                     GameMgr.inst.Score += 10;
+                    GameMgr.inst.TotalEnemiesDestroyed += 1;
                     Destroy(other.transform.parent.gameObject, 0);
 
                 }
@@ -33,7 +34,7 @@ public class Projectile : MonoBehaviour
         {
             if (other.name == "PlayerMesh")
             {
-                Destroy(this.gameObject.GetComponentInParent<Transform>().gameObject, 0);
+                GameMgr.inst.PlayerHealth -= 1;
             }
         }
     }
