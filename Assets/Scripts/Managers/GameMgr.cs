@@ -64,6 +64,7 @@ public class GameMgr : MonoBehaviour
     {
         playerIsAlive = false;  //set alive to false
         //maybe put explosion animation here?
+        player.transform.GetChild(2).gameObject.SetActive(false);   //hide player mesh
         player.transform.GetChild(0).gameObject.SetActive(false);   //hide player mesh
         UIMgr.inst.OnGameOver();
         //maybe activate a game over screen?
