@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/flieglerj/Downloads/SpaceJunkiesGame-main(2)/SpaceJunkiesGame-main/Builds/SpaceJunkiesGame.exe
+C:/Users/17752/Documents/GitHub/SpaceJunkiesGame/Builds/SpaceJunkiesGame.exe
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/MainScene.unity
